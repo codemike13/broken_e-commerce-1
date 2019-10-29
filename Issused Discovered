@@ -1,0 +1,6 @@
+#1 No .env file in root
+    - Missing MONGODB_URI , SEFCRET_Session, cookie length
+#2 passport was not being passed in on 
+    -line 64 app.js
+#3 Local host not set to port 3000 
+    - line 15 www

@@ -1,16 +1,16 @@
 const express = require('express');
 const passport = require('passport')
-const router  = express.Router();
+const router = express.Router();
 
-const userController   = require('./controllers/userController')
+const userController = require('./controllers/userController')
 const signupValidation = require('./utils/signupValidation')
-const cartController   = require('../cart/controllers/cartController') 
+const cartController = require('../cart/controllers/cartController')
 
 const User = require('./models/User')
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/', function (req, res, next) {
+    res.send('respond with a resource');
 });
 
 router.get('/signup', (req, res) => {
@@ -30,7 +30,7 @@ router.get('/signin', (req, res) => {
 router.post('/signin', passport.authenticate('local-login', {
     successRedirect: '/',
     failureRedirect: '/api/users/signin',
-    failureFlash:    true
+    failureFlash: true
 }))
 
 router.get('/edit-profile', (req, res) => {
@@ -48,7 +48,7 @@ router.put('/edit-profile', (req, res) => {
         })
         .catch(err => {
             req.flash('errors', err);
-            
+
             res.redirect('/api/users/edit-profile')
         })
 })
